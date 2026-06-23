@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.astro/
+.pnpm-store/
+.repo/
+/logo.png
+.DS_Store
