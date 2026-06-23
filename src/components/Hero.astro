@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+interface Props { eyebrow?: string; title: string; text: string; compact?: boolean }
+const { eyebrow, title, text, compact = false } = Astro.props;
+---
+<section class:list={['hero', compact && 'hero-compact']}>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      <p class="hero-text">{text}</p>
+      <div class="hero-actions"><a class="button" href="https://wa.me/447805710771?text=Hello%20MII%20Solutions%2C%20I%27d%20like%20some%20smart%20home%20advice." target="_blank" rel="noopener"><Icon name="message" size={19} /> WhatsApp us</a><a class="button button-secondary" href="/contact/">Book a consultation</a></div>
+      <p class="microcopy"><Icon name="shield" size={17} /> Friendly, independent advice with no unnecessary upselling</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="house-shell"><div class="roof"></div><Icon name="home" size={142} /><span class="device device-one"><Icon name="camera" /></span><span class="device device-two"><Icon name="bulb" /></span><span class="device device-three"><Icon name="wifi" /></span><span class="signal signal-one"></span><span class="signal signal-two"></span></div>
+    </div>
+  </div>
+</section>

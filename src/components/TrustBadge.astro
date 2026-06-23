@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props { icon?: string; title: string; text: string }
+const { icon = 'check', title, text } = Astro.props;
+---
+<div class="trust-badge"><span><Icon name={icon} size={20} /></span><div><strong>{title}</strong><p>{text}</p></div></div>

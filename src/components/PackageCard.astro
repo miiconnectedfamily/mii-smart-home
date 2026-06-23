@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; text: string; items: string[]; featured?: boolean }
+const { title, text, items, featured = false } = Astro.props;
+---
+<article class:list={['card', 'package-card', featured && 'featured']}>
+  {featured && <span class="package-label">Popular starting point</span>}<h3>{title}</h3><p>{text}</p>
+  <ul>{items.map(item => <li><Icon name="check" size={18} />{item}</li>)}</ul>
+  <div class="package-footer"><strong>Contact us for a quote</strong><a class="button button-secondary button-small" href="https://wa.me/447805710771" target="_blank" rel="noopener">Ask on WhatsApp</a></div>
+</article>

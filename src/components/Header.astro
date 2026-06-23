@@ -1,0 +1,32 @@
+---
+import Icon from './Icon.astro';
+const nav = [
+  ['Services', '/services/'], ['Cameras & doorbells', '/smart-cameras-doorbells/'],
+  ['Advice before you buy', '/advice-before-you-buy/'], ['Packages', '/packages/'],
+  ['Why us', '/why-choose-us/'], ['Guides', '/guides/'], ['Contact', '/contact/'],
+];
+const current = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="announcement"><span>Friendly smart home help for London and across the UK</span><a href="/contact/">Get advice <Icon name="arrow" size={16} /></a></div>
+  <div class="nav-wrap container">
+    <a class="brand" href="/" aria-label="MII Solutions home">
+      <img src="/images/mii-solutions-logo.png" alt="" width="48" height="48" />
+      <span><strong>MII</strong> Solutions<small>Smart home solutions</small></span>
+    </a>
+    <button class="menu-button" aria-expanded="false" aria-controls="main-nav"><span class="sr-only">Open menu</span><span class="menu-icon"><Icon name="menu" /></span></button>
+    <nav id="main-nav" aria-label="Main navigation">
+      {nav.map(([label, href]) => <a href={href} aria-current={current === href ? 'page' : undefined}>{label}</a>)}
+      <a class="button button-small" href="https://wa.me/447805710771?text=Hello%20MII%20Solutions%2C%20I%27d%20like%20some%20smart%20home%20advice." target="_blank" rel="noopener">WhatsApp us</a>
+    </nav>
+  </div>
+</header>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.menu-button');
+  const nav = document.querySelector<HTMLElement>('#main-nav');
+  button?.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!open));
+    nav?.classList.toggle('open', !open);
+  });
+</script>

@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props { title?: string; text?: string }
+const { title = 'Ready to make your smart home simpler?', text = 'Tell us what you have—or what you want to achieve—and we’ll guide you towards a setup that makes sense.' } = Astro.props;
+---
+<section class="cta-section"><div class="container cta-inner"><div><p class="eyebrow eyebrow-light">A helpful first conversation</p><h2>{title}</h2><p>{text}</p></div><div class="cta-actions"><a class="button button-white" href="https://wa.me/447805710771?text=Hello%20MII%20Solutions%2C%20I%27d%20like%20some%20smart%20home%20advice." target="_blank" rel="noopener"><Icon name="message" size={19} /> WhatsApp us</a><a class="button button-outline-light" href="mailto:miiconnectedfamily@gmail.com?subject=Smart%20home%20enquiry">Email us</a></div></div></section>

@@ -1,0 +1,6 @@
+---
+import Icon from './Icon.astro';
+interface Props { title: string; text: string; href?: string; category?: string }
+const { title, text, href, category = 'Simple guide' } = Astro.props;
+---
+<article class="card blog-card"><div class="blog-meta"><span>{category}</span><span><Icon name="clock" size={15} /> 5 min read</span></div><h3>{title}</h3><p>{text}</p>{href ? <a class="text-link" href={href}>Read guide <Icon name="arrow" size={17} /></a> : <span class="coming-soon">Guide coming soon</span>}</article>
